@@ -1,7 +1,7 @@
 /* ============ PeaceHealth · script.js ============ */
 
 /* ---------- Config ---------- */
-const API_URL = 'https://mental-health-score-prediction-nys9.onrender.com/';
+const API_URL = 'https://mental-health-score-prediction-x80k.onrender.com';
 const MODEL_SCORE_MAX = 10;     // range of predicted_mental_health_score returned by the model (assumed 0-10)
 const HIGHER_IS_BETTER = true;  // set to false if a higher model score means more distress
 const TICK_COUNT = 60;
