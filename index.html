@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PeaceHealth · Mental Health Score Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+
+<div class="wrap">
+  <header class="reveal">
+    <div class="brand">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A3C9A8"/><stop offset="1" stop-color="#72A98F"/></linearGradient></defs>
+        <circle cx="24" cy="24" r="22.5" stroke="url(#lg)" stroke-opacity=".5" stroke-width="1.2"/>
+        <path d="M24 37c-1-5-5-8-10-9 .5-6 4-9 10-10 6 1 9.500 4 10 10-5 1-9 4-10 9Z" fill="url(#lg)" fill-opacity=".22" stroke="url(#lg)" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M24 37V20M24 29c-2.500-1-4.500-2.500-6-4.500M24 29c2.500-1 4.500-2.500 6-4.500" stroke="url(#lg)" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <div class="word"><h1><span>Peace</span>Health</h1><p>Quantifying Emotional Wellbeing with Precision AI</p></div>
+    </div>
+    <button class="toggle" id="theme" aria-label="Switch between dark and light theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 12.800A9 9 0 1 1 11.200 3a7 7 0 0 0 9.800 9.800Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.900 4.900l1.400 1.400M17.700 17.700l1.400 1.400M2 12h2M20 12h2M4.900 19.100l1.400-1.400M17.700 6.300l1.400-1.400"/></svg>
+    </button>
+  </header>
+
+  <section class="hero reveal" style="--d:.08s">
+    <h2>A quiet moment to check in with yourself.</h2>
+    <p>Share a few details about your day-to-day. PeaceHealth estimates your mental wellbeing score and shows which habits shape it.</p>
+  </section>
+
+  <main class="layout">
+    <form id="form" class="card reveal" style="--d:.18s" novalidate>
+      <div class="group"><h3>About you</h3></div>
+      <div class="grid2">
+        <div class="field"><span class="lbl">Gender</span>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="gender" value="Male" checked><span>Male</span></label>
+            <label class="chip"><input type="radio" name="gender" value="Female"><span>Female</span></label>
+          </div></div>
+        <div class="field"><label for="country">Country</label>
+          <input type="text" id="country" list="countries" placeholder="e.g. India" value="India" autocomplete="off">
+          <datalist id="countries"><option>India<option>USA<option>Canada<option>Australia<option>UK<option>Germany<option>Mexico<option>Turkey<option>France</datalist></div>
+        <div class="field full"><label for="age">Age <output for="age">20</output></label>
+          <input type="range" id="age" min="10" max="100" step="1" value="20"></div>
+        <div class="field full"><span class="lbl">Academic level</span>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="academic_level" value="High School"><span>High School</span></label>
+            <label class="chip"><input type="radio" name="academic_level" value="Undergraduate" checked><span>Undergraduate</span></label>
+            <label class="chip"><input type="radio" name="academic_level" value="Graduate"><span>Graduate</span></label>
+          </div></div>
+      </div>
+
+      <div class="group"><h3>Digital habits</h3></div>
+      <div class="grid2">
+        <div class="field"><label for="most_used_platform">Most used platform</label>
+          <select id="most_used_platform">
+            <option>Instagram</option><option>Facebook</option><option>LinkedIn</option><option>Snapchat</option><option>Twitter</option>
+            <option>YouTube</option><option>TikTok</option><option>LINE</option><option>KakaoTalk</option><option>VKontakte</option><option>WhatsApp</option><option>WeChat</option>
+          </select></div>
+        <div class="field"><label for="avg_daily_usage_hours">Daily social media <output for="avg_daily_usage_hours">4.0 h</output></label>
+          <input type="range" id="avg_daily_usage_hours" min="0" max="24" step="0.5" value="4" data-unit=" h" data-dec="1"></div>
+        <div class="field full"><span class="lbl">Main purpose of use</span>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="purpose_of_use" value="Entertainment" checked><span>Entertainment</span></label>
+            <label class="chip"><input type="radio" name="purpose_of_use" value="Education"><span>Education</span></label>
+            <label class="chip"><input type="radio" name="purpose_of_use" value="Networking"><span>Networking</span></label>
+            <label class="chip"><input type="radio" name="purpose_of_use" value="News"><span>News</span></label>
+          </div></div>
+        <div class="field full"><label for="daily_unlocks">Phone unlocks per day <output for="daily_unlocks">60</output></label>
+          <input type="range" id="daily_unlocks" min="0" max="300" step="5" value="60"></div>
+      </div>
+
+      <div class="group"><h3>Body and mind</h3></div>
+      <div class="grid2">
+        <div class="field"><label for="study_hours">Study hours <output for="study_hours">4.0 h</output></label>
+          <input type="range" id="study_hours" min="0" max="24" step="0.5" value="4" data-unit=" h" data-dec="1"></div>
+        <div class="field"><label for="physical_activity_hours">Physical activity <output for="physical_activity_hours">1.0 h</output></label>
+          <input type="range" id="physical_activity_hours" min="0" max="24" step="0.5" value="1" data-unit=" h" data-dec="1"></div>
+        <div class="field full"><label for="sleep_hours_per_night">Sleep per night <output for="sleep_hours_per_night">7.0 h</output></label>
+          <input type="range" id="sleep_hours_per_night" min="0" max="24" step="0.5" value="7" data-unit=" h" data-dec="1"></div>
+        <div class="field full"><span class="lbl">Current stress level</span>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="stress_level" value="Low"><span>Low</span></label>
+            <label class="chip"><input type="radio" name="stress_level" value="Medium" checked><span>Medium</span></label>
+            <label class="chip"><input type="radio" name="stress_level" value="High"><span>High</span></label>
+            <label class="chip"><input type="radio" name="stress_level" value="Very High"><span>Very High</span></label>
+          </div></div>
+      </div>
+
+      <button class="btn" id="submit" type="submit"><span>Calculate my score</span></button>
+      <div id="error" class="err hidden" role="alert"></div>
+    </form>
+
+    <aside class="card result reveal" style="--d:.28s" aria-live="polite">
+      <h2>Mental Health Index</h2>
+      <p class="sub">Updates each time you calculate.</p>
+
+      <div class="gauge" id="gauge">
+        <div class="aura"></div>
+        <svg viewBox="0 0 300 300" fill="none">
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" style="stop-color:var(--za)"/><stop offset="1" style="stop-color:var(--zb)"/>
+            </linearGradient>
+          </defs>
+          <g id="ticks"></g>
+          <circle class="track" cx="150" cy="150" r="112" stroke-width="9"/>
+          <circle class="bar" id="bar" cx="150" cy="150" r="112" stroke-width="9"/>
+        </svg>
+        <div class="knob" id="knob"></div>
+        <div class="center">
+          <div class="num" id="num">–</div>
+          <div class="of" id="of">out of 100</div>
+        </div>
+      </div>
+
+      <div class="zone"><span class="pill" id="pill"><i></i><span id="zoneName">Awaiting your answers</span></span></div>
+      <p class="zonetext" id="zoneText">Fill in the form, then select Calculate my score.</p>
+
+      <div id="skeleton" class="skeleton hidden">
+        <div class="skel" style="height:64px"></div><div class="skel" style="height:64px"></div><div class="skel" style="height:48px"></div>
+      </div>
+      <div id="details" class="hidden">
+        <div class="metrics" id="metrics"></div>
+        <ul class="tips" id="tips"></ul>
+      </div>
+      <p class="note">This is a statistical estimate, not a diagnosis. If you are struggling, please talk to someone you trust or a qualified professional.</p>
+    </aside>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
