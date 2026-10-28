@@ -1,7 +1,11 @@
 /* ============ PeaceHealth · script.js ============ */
 
 /* ---------- Config ---------- */
-const API_URL = 'https://mental-health-score-prediction-3ngj.onrender.com';
+// Same-origin by default (the FastAPI app serves this page), so it works on Render with no edits.
+// Fallback for opening the file directly or serving it on another local port.
+const IS_LOCAL_DEV = location.protocol === 'file:' ||
+  (['localhost', '127.0.0.1'].includes(location.hostname) && location.port !== '8000');
+const API_URL = IS_LOCAL_DEV ? 'http://localhost:8000/predict' : 'https://mental-health-score-prediction-3ngj.onrender.com/predict';
 const MODEL_SCORE_MAX = 10;     // range of predicted_mental_health_score returned by the model (assumed 0-10)
 const HIGHER_IS_BETTER = true;  // set to false if a higher model score means more distress
 const TICK_COUNT = 60;
