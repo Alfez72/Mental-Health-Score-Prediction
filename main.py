@@ -54,7 +54,7 @@ class PredictionResponse(BaseModel):
 
 @app.get('/')
 def greet():
-    return {'Welcome'}
+    return {"message": "Welcome"}
 
 # response model passed it if its float 4.44
 
