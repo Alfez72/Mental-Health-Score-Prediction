@@ -288,5 +288,3 @@ The API and the interface are deployed as two separate Render services from the 
 - Kaggle: [kaggle.com/alfezkhan71](https://kaggle.com/alfezkhan71)
 - GitHub: [Alfez72](https://github.com/Alfez72)
 - Email: pathanalfaiz72@gmail.com
-#   M e n t a l - H e a l t h - S c o r e - P r e d i c t i o n  
- 
