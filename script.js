@@ -1,7 +1,7 @@
 /* ============ PeaceHealth · script.js ============ */
 
 /* ---------- Config ---------- */
-const API_URL = 'http://localhost:8000/predict';
+const API_URL = 'https://mental-health-score-prediction-nys9.onrender.com/';
 const MODEL_SCORE_MAX = 10;     // range of predicted_mental_health_score returned by the model (assumed 0-10)
 const HIGHER_IS_BETTER = true;  // set to false if a higher model score means more distress
 const TICK_COUNT = 60;
@@ -84,12 +84,18 @@ function collect() {
 
 /* ---------- Wellness zones ---------- */
 function zoneFor(i) {
-  if (i >= 70) return { name: 'Optimal Balance', c: 'var(--sage)', a: '#72A98F', b: '#A3C9A8',
-    text: 'Your routine looks well balanced. Keep protecting the habits that support you.' };
-  if (i >= 50) return { name: 'Mild Stress', c: 'var(--sky)', a: '#8ECAE6', b: '#72A98F',
-    text: 'A few patterns may be adding pressure. Small, steady changes can help.' };
-  return { name: 'Elevated Strain', c: 'var(--amber)', a: '#E29578', b: '#F2BFA8',
-    text: 'Several habits may be weighing on you. Gentle changes and support can make a real difference.' };
+  if (i >= 70) return {
+    name: 'Optimal Balance', c: 'var(--sage)', a: '#72A98F', b: '#A3C9A8',
+    text: 'Your routine looks well balanced. Keep protecting the habits that support you.'
+  };
+  if (i >= 50) return {
+    name: 'Mild Stress', c: 'var(--sky)', a: '#8ECAE6', b: '#72A98F',
+    text: 'A few patterns may be adding pressure. Small, steady changes can help.'
+  };
+  return {
+    name: 'Elevated Strain', c: 'var(--amber)', a: '#E29578', b: '#F2BFA8',
+    text: 'Several habits may be weighing on you. Gentle changes and support can make a real difference.'
+  };
 }
 
 /* ---------- Insights (derived from your inputs, not from the model) ---------- */
